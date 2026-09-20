@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'"
+    />
+    <title>Cookie Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="renderer.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="#timer" aria-label="Cookie Tracker home"
+        ><span class="brand-icon">◷</span> cookie<span>tracker</span
+        ><span class="brand-dot">.</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#timer" id="timer-nav" class="selected">Timer</a
+        ><a href="#history" id="history-nav">History</a>
+      </nav>
+      <span class="local"><span></span> Saved on this device</span>
+    </header>
+    <main>
+      <section id="timer-page">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow" id="today-date"></p>
+            <h1>A little time, every day.</h1>
+            <p class="subtitle">
+              Make space for what matters. Watch it add up.
+            </p>
+          </div>
+          <span class="small-mark">One session at a time ↗</span>
+        </div>
+        <div class="timer-card">
+          <div class="status" id="status"><span></span> READY WHEN YOU ARE</div>
+          <div
+            id="clock"
+            class="clock"
+            role="timer"
+            aria-label="Current session duration"
+          >
+            00:00:00
+          </div>
+          <p id="timer-caption">Your next small step starts here.</p>
+          <button id="toggle" class="primary">
+            <span id="button-icon">▶</span
+            ><span id="button-text">Start tracking</span>
+          </button>
+          <div class="timer-note">
+            Stops automatically when you close the app.
+          </div>
+          <div class="corner corner-left">FOCUS ON THE MOMENT</div>
+          <div class="corner corner-right">LET THE DAYS ADD UP</div>
+        </div>
+        <div class="stats" id="today-stats"></div>
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <h2>Your year, one day at a time</h2>
+              <p>Every bit of time leaves a mark.</p>
+            </div>
+            <a class="text-link" href="#history">Explore history ↗</a>
+          </div>
+          <div id="current-heatmap"></div>
+        </section>
+        <section class="sessions-section">
+          <div class="section-heading">
+            <h2>Today’s sessions</h2>
+            <span class="muted" id="session-count"></span>
+          </div>
+          <div id="sessions"></div>
+        </section>
+      </section>
+      <section id="history-page" hidden>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">THE BIGGER PICTURE</p>
+            <h1>Time well spent.</h1>
+            <p class="subtitle">Small sessions. A whole year of showing up.</p>
+          </div>
+          <button class="secondary" id="this-year">This year ↗</button>
+        </div>
+        <div class="year-controls">
+          <button id="prev-year" class="arrow" aria-label="Previous year">
+            ←
+          </button>
+          <h2 id="year-label"></h2>
+          <button id="next-year" class="arrow" aria-label="Next year">→</button
+          ><span class="muted">Browse your years</span>
+        </div>
+        <div class="stats" id="year-stats"></div>
+        <section class="panel history-panel">
+          <div class="section-heading">
+            <div>
+              <h2>Daily activity</h2>
+              <p>Select a day to see the time you put in.</p>
+            </div>
+            <span class="tag">JAN — DEC</span>
+          </div>
+          <div id="history-heatmap"></div>
+          <div class="day-detail" id="day-detail" aria-live="polite">
+            Select a square to explore your day.
+          </div>
+        </section>
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <h2>Month by month</h2>
+              <p>A different view of the same steady progress.</p>
+            </div>
+          </div>
+          <div id="months" class="months"></div>
+        </section>
+        <p class="history-footnote">
+          Your history stays on this device. No accounts, no distractions.
+        </p>
+      </section>
+      <p id="error" role="alert" hidden></p>
+    </main>
+    <footer>
+      <span>Make your time count.</span
+      ><span>COOKIE TRACKER <span class="footer-dot">✳</span></span>
+    </footer>
+  </body>
+</html>

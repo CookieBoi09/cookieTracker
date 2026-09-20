@@ -1,0 +1,42 @@
+{
+  "name": "cookie-tracker",
+  "version": "1.0.0",
+  "description": "A quiet place to track your time and see your progress.",
+  "main": "src/main.cjs",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.cjs",
+    "dist": "electron-builder",
+    "test:desktop": "node test/desktop.cjs",
+    "format": "prettier --write src test package.json README.md",
+    "format:check": "prettier --check src test package.json README.md"
+  },
+  "devDependencies": {
+    "electron": "^41.10.7",
+    "electron-builder": "^26.0.12",
+    "playwright": "^1.63.0",
+    "prettier": "^3.9.8"
+  },
+  "build": {
+    "appId": "com.cookieboi09.cookieTracker",
+    "productName": "Cookie Tracker",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
